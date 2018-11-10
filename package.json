@@ -1,0 +1,49 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "debug": "npm-run-all -s clean:* debug:*",
+    "debug:ts": "tsc",
+    "debug:webpack": "webpack --devtool source-map",
+    "release": "npm-run-all -s  clean:* release:*",
+    "release:ts": "tsc --sourceMap false",
+    "release:webpack": "webpack --devtool false --optimize-minimize",
+    "watch": "npm-run-all -p watch:*",
+    "watch:webpack-dev-server": "webpack-dev-server",
+    "clean": "npm-run-all -s clean:*",
+    "clean:ts": "rimraf ./dist/ts/",
+    "clean:css": "rimraf ./src/css/*.d.ts",
+    "clean:webpack": "rimraf ./dist/bundle.*",
+    "lint": "tslint './src/**/*.ts{,x}' --force -t stylish",
+    "lint-fix": "tslint './src/**/*.ts{,x}' --force -t stylish --fix",
+    "test": "jest --coverage false",
+    "coverage": "jest",
+    "coverage-clean": "rimraf ./coverage/**/*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^21.2.1",
+    "npm-run-all": "^4.1.2",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.19.0",
+    "ts-jest": "^21.2.4",
+    "ts-loader": "^3.2.0",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "url-loader": "^1.1.2",
+    "webpack": "^3.9.1",
+    "webpack-dev-server": "^2.9.5"
+  },
+  "dependencies": {
+    "@types/jest": "^21.1.8",
+    "@types/node": "^8.0.54"
+  }
+}
